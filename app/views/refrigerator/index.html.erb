@@ -1,0 +1,8 @@
+## ここにhtmlを書いていく感じになります
+<hr>
+<% @itemInfo.each do |item| %>
+  <%= item["Item"] %>
+  <%= item["timestamp"] %>
+  <%= item["Expiration_date"] %>
+  <br>
+<% end %>
