@@ -22,6 +22,10 @@ gem 'dotenv-rails'
 
 gem 'pry-rails'
 
+# スクレイピング
+gem 'mechanize'
+
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

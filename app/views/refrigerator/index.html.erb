@@ -1,8 +1,31 @@
 ## ここにhtmlを書いていく感じになります
 <hr>
-<% @itemInfo.each do |item| %>
-  <%= item["Item"] %>
-  <%= item["timestamp"] %>
-  <%= item["Expiration_date"] %>
-  <br>
-<% end %>
+一覧
+<hr>
+<div>
+  <table>
+    <thead>
+      <th>Item</th>
+      <th>timestamp</th>
+      <th>Expiration_date</th>
+      <th>button</th>
+    </thead>
+    <% @itemInfo.each do |item| %>
+      <tbody>
+        <td><%= item["Item"] %></td>     
+        <td><%= item["timestamp"] %></td>
+        <td><%= item["Expiration_date"] %></td>
+        <td><%= link_to '消費したよ', refrigerator_path(Type: item["Type"],Item: item["Item"]), method: :delete, data: { confirm: '全て消費しましたか?' }  %></td>
+        <% if SearchRecipe.search_recipe(item["Item"]).count !=0 %>
+          <td><%= link_to item["Item"], SearchRecipe.search_recipe(item["Item"])[0] %></td>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+<hr>
+おすすめレシピ
+<br>
+## レシピレコメンド機能の確認　日本語名じゃないとレシピが出てこない
+<br>
+<%= link_to "カレー", SearchRecipe.search_recipe("カレー")[0] %>

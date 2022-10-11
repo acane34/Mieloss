@@ -17,6 +17,7 @@ class ReadTables
     result.items.each do |item|
       info = {}
       info["Item"] = item["Item"]
+      info["Type"] = item["Type"]
       info["timestamp"] = item["timestamp"]
       info["Expiration_date"] = item["Expiration_date"]
       infoList.append(info)
