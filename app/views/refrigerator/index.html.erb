@@ -1,0 +1,53 @@
+<div class="container">
+  <p><b><i><font size="5" face="italic" color="dimgray">The contents of my refrigerator</font></i></b></p>
+  <table class="table caption-top" border="0" width="1000" height="100">
+    <thead>
+      <tr>
+        <th scope="col">食材名</th>
+        <th scope="col">入庫日</th>
+        <th scope="col">消費期限</th>
+        <th scope="col">残り日数</th>
+        <th scope="col">消費完了ボタン</th>
+      </tr>
+    </thead>
+    <% @itemInfo.each do |item| %>
+      <% if item["Days_left"]<=1 %>
+        <tbody>
+          <tr>
+            <th class="table-danger" scope="row"><%= item["Item"] %></td>
+            <td><%= item["timestamp"] %></td>
+            <td><%= item["Expiration_date"] %></td>
+            <td><%= item["Days_left"] %>日</td>
+            <td><%= link_to '消費完了', refrigerator_path(Type: item["Type"],Item: item["Item"]), class:"btn btn-danger",method: :delete, data: { confirm: '全て消費しましたか?' }  %></td>
+            <% if SearchRecipe.search_recipe(item["Item"]).count !=0 %>
+            <% end %>
+          </tr>
+        </tbody>
+      <% elsif item["Days_left"]<=5 %>
+        <tbody>
+          <tr>
+            <th class="table-warning" scope="row"><%= item["Item"] %></td>
+            <td><%= item["timestamp"] %></td>
+            <td><%= item["Expiration_date"] %></td>
+            <td><%= item["Days_left"] %>日</td>
+            <td><%= link_to '消費完了', refrigerator_path(Type: item["Type"],Item: item["Item"]), class:"btn btn-danger",method: :delete, data: { confirm: '全て消費しましたか?' }  %></td>
+            <% if SearchRecipe.search_recipe(item["Item"]).count !=0 %>
+            <% end %>
+          </tr>
+        </tbody>
+      <% else %>
+        <tbody>
+          <tr>
+            <th class="table-primary" scope="row"><%= item["Item"] %></td>
+            <td><%= item["timestamp"] %></td>
+            <td><%= item["Expiration_date"] %></td>
+            <td><%= item["Days_left"] %>日</td>
+            <td><%= link_to '消費完了', refrigerator_path(Type: item["Type"],Item: item["Item"]), class:"btn btn-danger",method: :delete, data: { confirm: '全て消費しましたか?' }  %></td>
+            <% if SearchRecipe.search_recipe(item["Item"]).count !=0 %>
+            <% end %>
+          </tr>
+        </tbody>
+      <% end %>
+    <% end %>
+  </table>
+</div>

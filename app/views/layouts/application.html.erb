@@ -7,9 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/6e896dfcb0.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex flex-column">
+      <%= render partial: 'layouts/header' %>
+      <div class = "row">
+        <div class ="col-2 m-2 bo">
+          <%= render partial: 'layouts/sidebar' %>
+        </div>
+        <div class ="col m-2">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render partial: 'layouts/footer' %>
+    </div>
   </body>
 </html>

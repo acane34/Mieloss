@@ -1,0 +1,29 @@
+<div class="container">
+  <i><font size="5" face="italic" color="dimgray">
+
+  <h4 class="m-2">レシピの提案</h4>
+  <h5 class="m-2">冷蔵庫の中身を有効的に使おう！！</h5>
+  </font></i></b>
+
+  <hr>
+
+  <div class="d-flex flex-wrap m-2">
+    <% i = 0 %>
+    <% @recipe.each do |recipe| %>
+      <div class="card m-3" style="width: 18rem;">
+        <div class="m-1">
+          <img src=<%= recipe[1] %> class="card-img-top" alt=<%= recipe[2] %>>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= @itemName[i] %>のレシピ</h5>
+          <p class="card-text">
+            <%= recipe[2] %>
+          </p>
+          <%= link_to "クラシルのレシピを見る", recipe[0], class:"btn btn-primary" %>
+        </div>
+      </div>
+      <% i = i + 1 %>
+    <% end %>
+  </div>
+
+</div>
