@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <% @itemInfo.each do |item| %>
-      <% if item["Days_left"]<=0 %>
+      <% if item["Days_left"]<=1 %>
         <tbody>
           <tr>
             <th class="table-danger" scope="row"><%= item["Item"] %></td>

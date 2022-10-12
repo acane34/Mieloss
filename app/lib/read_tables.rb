@@ -22,7 +22,7 @@ class ReadTables
       info["Type"] = item["Type"]
       info["timestamp"] = item["timestamp"]
       info["Expiration_date"] = item["Expiration_date"]
-      info["Days_left"] = (Time.parse(item["Expiration_date"]) - time).div(24*60*60)
+      info["Days_left"] = (Time.parse(item["Expiration_date"]) - time).div(24*60*60) + 1
       if info["Days_left"] > 0 then
         info["dead"] = false
       else
