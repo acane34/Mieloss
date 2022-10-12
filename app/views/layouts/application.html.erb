@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex flex-column">
+      <%= render partial: 'layouts/header' %>
+      <div class = "row mt-3">
+        <div class ="col-2 m-2">
+          <%= render partial: 'layouts/sidebar' %>
+        </div>
+        <div class ="col m-2">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render partial: 'layouts/footer' %>
+    </div>
   </body>
 </html>

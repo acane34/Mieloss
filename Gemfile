@@ -22,6 +22,8 @@ gem 'dotenv-rails'
 
 gem 'pry-rails'
 
+gem 'bootstrap', '~> 4.6.0'
+
 # スクレイピング
 gem 'mechanize'
 
