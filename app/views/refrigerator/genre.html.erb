@@ -1,0 +1,33 @@
+<div class="container">
+  <p><b><i><font size="5" face="italic" color="dimgray">The contents of my refrigerator</font></i></b></p>
+  <hr>
+  <% refrigerator = [@fish, @meat, @vege, @fruit, @tohu, @spices] %>
+  <% names = ["魚類", "肉類", "野菜", "果物", "豆腐加工品", "調味料"] %>
+  <% i = 0 %>
+  <% refrigerator.each do |re| %>
+    <div class="row mb-5 ml-3">
+      <h4><%= names[i] %></h4>
+      <table class="table caption-top" border="0" width="800" height="100">
+        <thead>
+          <tr>
+            <th scope="col">食材名</th>
+            <th scope="col">入庫日</th>
+            <th scope="col">消費期限</th>
+            <th scope="col">残り日数</th>
+          </tr>
+        </thead>
+        <% re.each do |r| %>
+          <tbody>
+            <tr>
+              <th scope="row"><%= r["Item"] %></td>     
+              <td><%= r["timestamp"] %></td>
+              <td><%= r["Expiration_date"] %></td>
+              <td><%= r["Days_left"] %>日</td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+    <% i = i + 1 %>
+  <% end %>
+</div>
